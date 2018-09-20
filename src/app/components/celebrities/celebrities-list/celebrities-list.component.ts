@@ -10,16 +10,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./celebrities-list.component.css']
 })
 export class CelebritiesListComponent implements OnInit {
-  celebrities$: Observable<Celebrity[]>;
+  celebrities: Array<Celebrity>;
 
   constructor(
     private celebritiesService: CelebritiesService,
     private router: Router
   ) { }
 
+  // ngOnInit() {
+  //   this.getCelebrities();
+  // }
+
   ngOnInit() {
-    this.getCelebrities();
+    this.celebritiesService.getCelebrities().subscribe((celebrities:Celebrity[])=>{
+      this.celebrities = celebrities;
+      
+    })
   }
+
 
   onClickDelete(celebrity: Celebrity) {
   }
@@ -27,7 +35,8 @@ export class CelebritiesListComponent implements OnInit {
   onClickEdit(celebrity: Celebrity) {
   }
 
-  private getCelebrities() {
-  }
+  // private getCelebrities() {
+
+  // }
 
 }

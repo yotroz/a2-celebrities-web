@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./celebrities-form.component.css']
 })
 export class CelebritiesFormComponent implements OnInit {
-  celebrity: Celebrity;
+  celebrity: Celebrity = new Celebrity();
 
   constructor(
     private celebritiesService: CelebritiesService,
@@ -22,5 +22,8 @@ export class CelebritiesFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.celebritiesService.createCelebrity(this.celebrity).subscribe((celebrity) => {
+      this.router.navigate(['celebrities']);
+    })
   }
 }
