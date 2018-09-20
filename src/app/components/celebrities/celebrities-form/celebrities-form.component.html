@@ -1,0 +1,23 @@
+<h1>New Celebrity</h1>
+
+<form #form="ngForm" (ngSubmit)="onSubmit()" *ngIf="celebrity">
+  <div>
+    Name:
+    <input type="text" [(ngModel)]="celebrity.name" name="name">
+  </div>
+  
+  <div>
+    Occupation:
+    <input type="text" [(ngModel)]="celebrity.occupation" name="occupation" required>
+  </div>
+
+  <div>
+    catchPhrase:
+    <input type="text" [(ngModel)]="celebrity.catchPhrase" name="catchPhrase" required>
+  </div>
+
+  <button type="submit" [disabled]="!form.valid">
+    <ng-container *ngIf="celebrity.new" else update>Create</ng-container>
+    <ng-container #update>Update</ng-container>
+  </button>
+</form>

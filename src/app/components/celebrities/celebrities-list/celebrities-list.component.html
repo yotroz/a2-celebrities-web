@@ -1,0 +1,10 @@
+<h1>Celebrities</h1>
+
+<ul *ngIf="celebrities$ | async as celebrities">
+  <li *ngFor="let celebrity of celebrities">
+    {{ celebrity | json }}
+
+    <button (click)="onClickEdit(celebrity)">Edit</button>
+    <button (click)="onClickDelete(celebrity)">Delete</button>
+  </li>
+</ul>
