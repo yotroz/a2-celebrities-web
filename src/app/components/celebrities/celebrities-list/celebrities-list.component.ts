@@ -22,17 +22,12 @@ export class CelebritiesListComponent implements OnInit {
   }
 
   onClickDelete(celebrity: Celebrity) {
-    this.celebritiesService.deleteCelebrity(celebrity).subscribe(() => {
-      this.getCelebrities();
-    });
   }
 
   onClickEdit(celebrity: Celebrity) {
-    this.router.navigate(['/celebrities', celebrity.id, 'edit']);
   }
 
   private getCelebrities() {
-    this.celebrities$ = this.celebritiesService.getCelebrities();
   }
 
 }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CelebritiesListComponent } from './components/celebrities/celebrities-list/celebrities-list.component';
 import { HeaderComponent } from './components/misc/header/header.component';
 import { CelebritiesFormComponent } from './components/celebrities/celebrities-form/celebrities-form.component';
+import { CelebritiesDetailsComponent } from './components/celebrities/celebrities-details/celebrities-details.component';
 
 
 
@@ -16,7 +17,8 @@ import { CelebritiesFormComponent } from './components/celebrities/celebrities-f
     AppComponent,
     CelebritiesListComponent,
     HeaderComponent,
-    CelebritiesFormComponent
+    CelebritiesFormComponent,
+    CelebritiesDetailsComponent
   ],
   imports: [
     BrowserModule,

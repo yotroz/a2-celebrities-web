@@ -19,25 +19,8 @@ export class CelebritiesFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const celebrityId = params.get('id');
-
-      if (celebrityId) {
-        this.celebritiesService.getCelebrity(celebrityId).subscribe((celebrity: Celebrity) => {
-          this.celebrity = celebrity;
-        });
-      } else {
-        this.celebrity = new Celebrity();
-      }
-    });
   }
 
   onSubmit() {
-    const method: string = this.celebrity.id ? 'updateCelebrity' : 'createCelebrity';
-
-    this.celebritiesService[method](this.celebrity).subscribe(
-      () => { this.router.navigate(['/celebrities']); },
-      (error: HttpErrorResponse) => { debugger; }
-    );
   }
 }
